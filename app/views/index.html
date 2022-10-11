@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport" />
+    <title>构建日志</title>
+    <style>
+        * {
+            cursor: text;
+            -webkit-tap-highlight-color: transparent
+        }
+        body ::selection {
+            background-color: #fff;
+            color: #000
+        }
+        body.root-mode ::selection {
+            background-color: #fff;
+            color: #000
+        }
+        body {
+            font-family: Monaco, Cutive Mono, Courier New, Consolas, monospace;
+            font-weight: 700;
+            font-size: 17px;
+            color: #bbb;
+            background-color: #000;
+            padding: 15px 20px;
+            margin: 0
+        }
+        .head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 20px;
+            height: 44px;
+            line-height: 44px;
+            background-color: #333;
+            padding: 0 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            font-weight: bold;
+            color: rgb(60, 187, 198);
+        }
+        .head .left {
+            display: flex;
+            align-items: center;
+        }
+        .head .left .ml20{
+            margin-left: 25px;
+        }
+        .head .left .tip{
+            font-size: 10px;
+            align-self: flex-end;
+        }
+        .content{
+            margin-top: 44px;
+            white-space: pre-line;
+        }
+    </style>
+</head>
+<body>
+    <div class="head">
+        <div class="left">
+            <div>环境：{{env}}</div>
+            <div class="ml20">构建：{{publisher}}</div>
+            <div class="ml20 tip">日志仅保留三天</div>
+        </div>
+        <div>{{moment(createtime).format('YYYY-MM-DD HH:mm:ss')}}</div>
+    </div>
+    <div class="content">{{content}}</div>
+</body>
+</html>
